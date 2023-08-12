@@ -3,7 +3,7 @@ import React from 'react'
 const Faculty = () => {
   return (
     <>
-    <header>CSE Department</header>
+    <header><h1>CSE Department</h1></header>
       <form action="">
         <h1>Faculty Registration</h1>
         <input
@@ -17,6 +17,7 @@ const Faculty = () => {
         <input type="password" required placeholder=" Confirm Password" />
         <input type="email" required placeholder="Email" />
         <input type="file" required />
+        <br />
         <input type="submit" value="Submit" />
       </form>
     </>
