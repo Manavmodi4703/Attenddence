@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Home = ({addOne}) => {
+const Home = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate()
 
-  const add = () => {
-      addOne({
-      password : password,
-      email : email,
-      role : role
-    })
-    switch(role){
-      case "Faculty":
-        navigate("/batch")
-      case "Student" :
-        navigate("/status")
-    }
+  const addInfo = () => {
+    setPassword(password);
+    setEmail(email);
+    setRole(role);
+  if(role == "Faculty"){
+    navigate("/batch");
   }
+};
   return (
     <>
     <h1>Student Attendance App</h1>
@@ -44,7 +39,7 @@ const Home = ({addOne}) => {
         <input
           type="submit"
           value="Submit"
-          onClick={add}
+          onClick={addInfo}
         />
       </form>
       <footer>
