@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
+// import { Faculty } from '../faculty'
 
 const Register = () => {
   const [role, setRole] = useState(null)
@@ -23,5 +24,3 @@ if(selectedRole == "Faculty"){
     </select>
   )
     }
-
-export default Register
