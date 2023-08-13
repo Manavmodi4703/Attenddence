@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Register from "./component/register";
+
 import Student from "./component/student";
 import Faculty from "./component/faculty";
 import Batch from "./component/batch";
 import Home from "./component/home"
 import Footer from "./component/footer";
+import { Register } from "./component/register";
 
 
 export const App = () => {

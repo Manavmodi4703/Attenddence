@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 // import { Faculty } from '../faculty'
 
-const Register = () => {
+export const Register = () => {
   const [role, setRole] = useState(null)
   const navigate = useNavigate()
 
   const handleRoleChange = (e) => {
     const selectedRole = e.target.value;
     setRole(selectedRole)
-if(selectedRole == "Faculty"){
+if(selectedRole === "Faculty"){
   navigate("/faculty")
  }
  else{
