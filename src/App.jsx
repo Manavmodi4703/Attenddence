@@ -6,7 +6,9 @@ import Faculty from "./component/faculty";
 import Batch from "./component/batch";
 import Home from "./component/home"
 import Footer from "./component/footer";
+import Mark from "./component/markPage";
 import { Register } from "./component/register";
+import View from "./component/ViewPage";
 
 
 export const App = () => {
@@ -21,6 +23,8 @@ export const App = () => {
       <Route path = "/student" element = {<Student />} />
       <Route path = "/faculty" element = {<Faculty />} />
       <Route path = "/batch" element = {<Batch />} />
+      <Route path="/mark-attendance" element ={<Mark />}></Route>
+      <Route path="/view-attendance" element={<View/>}></Route>
       
     </Routes>
     <Footer/>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ position: 'fixed', bottom: 0, width: '100%', textAlign: 'center', backgroundColor: 'grey', padding: '10px 0' }}>
+    <footer style={{ position: 'fixed', bottom: 0, width: '100%', textAlign: 'center', backgroundColor: 'grey', padding: '1px 0' }}>
       &copy; {new Date().getFullYear()} Your Attendance App. All rights reserved.
     </footer>
     

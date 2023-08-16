@@ -1,10 +1,21 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
+import './batch.css'
 
 const Batch = () => {
   const [year, setYear] = useState("")
   const [section, setSection] = useState("")
   const [subject, setSubject] = useState("")
   
+  const navigate = useNavigate();
+  const add=(e)=>{
+    e.preventDefault()
+    navigate('/mark-attendance')
+  }
+  const add1=(e)=>{
+    e.preventDefault()
+    navigate('/view-attendance')
+  }
   const selectYear = (e) => {
     const selectedYear = e.target.value;
     setYear(selectedYear);
@@ -40,8 +51,8 @@ const Batch = () => {
           <option value="MI">MI</option>
           <option value="DBMS">DBMS</option>
         </select>
-        <input type="button" value="Mark" />
-        <input type="button" value="View" />
+        <input type="button" value="Mark" onClick={add}/>
+        <input type="button" value="View" onClick={add1} />
         </>
   )
 }
