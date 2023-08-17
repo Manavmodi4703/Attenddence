@@ -1,14 +1,15 @@
-//  import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import { Wrapper } from "./style";
+ import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+ import { Container,FormGroup,Footer,Header,LoginForm,Form,Label,Input,Select,Button,H2} from "./style";
 // import './home.css'
+
+
 
 // const Home = () => {
 //   const [password, setPassword] = useState("");
 //   const [email, setEmail] = useState("");
 //   const [role, setRole] = useState("");
 //   const navigate = useNavigate()
-
 
 //   const addInfo = () => {
 //     setPassword(password);
@@ -18,13 +19,13 @@
 //     navigate("/batch");
 //   }
 // };
- 
+
 //    return (
 //      <>
 //      <h1 style={{backgroundColor: 'grey' ,textAlign: 'center',color:'black',marginTop: 'auto', width: '100%'
 //  }}>Student Attendance App</h1>
 //       <Wrapper action="">
-        
+
 //          <input
 //            type="email"
 //            required
@@ -47,21 +48,91 @@
 //            value="Login"
 //            onClick={addInfo}
 //          />
-         
+
 //        </Wrapper>
 //        <footer>
 //          <Link to="/register">New User Registration</Link>
-//        </footer> 
+//        </footer>
 //        </>
 //    )
 // };
 
-
 //  export default Home;
 
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./home.css"; 
+
+
+
+// import React, { useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import "./home.css";
+
+// const Home = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [role, setRole] = useState("");
+//   const navigate = useNavigate();
+
+//   const addInfo = () => {
+//     if (role === "Faculty") {
+//       navigate("/batch");
+//     }
+//   };
+
+//   return (
+//     <div className="container">
+//       <h1 className="header">Student Attendance App</h1>
+//       <div className="login-form">
+//         <h2>Login</h2>
+//         <form onSubmit={addInfo}>
+//           <div className="form-group">
+//             <label htmlFor="email">Email</label>
+//             <input
+//               type="email"
+//               id="email"
+//               required
+//               placeholder="Enter your email"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//             />
+//           </div>
+//           <div className="form-group">
+//             <label htmlFor="password">Password</label>
+//             <input
+//               type="password"
+//               id="password"
+//               required
+//               placeholder="Enter your password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//           </div>
+//           <div className="form-group">
+//             <label htmlFor="role">Role</label>
+//             <select
+//               id="role"
+//               value={role}
+//               onChange={(e) => setRole(e.target.value)}
+//             >
+//               <option value="" disabled>
+//                 Select Your Role
+//               </option>
+//               <option value="Faculty">Faculty</option>
+//               <option value="Student">Student</option>
+//             </select>
+//           </div>
+//           <button className="button" type="submit">
+//             Login
+//           </button>
+//         </form>
+//       </div>
+//       <footer>
+//         <Link to="/register">New User Registration</Link>
+//       </footer>
+//     </div>
+//   );
+// };
+
+// export default Home;
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -69,64 +140,64 @@ const Home = () => {
   const [role, setRole] = useState("");
   const navigate = useNavigate();
 
-  const addInfo = () => {
+  const addInfo = (e) => {
+    e.preventDefault();
     if (role === "Faculty") {
       navigate("/batch");
     }
   };
 
-  return (
-    <div className="container">
-      <h1 className="header">Student Attendance App</h1>
-      <div className="login-form">
-        <h2>Login</h2>
-        <form onSubmit={addInfo}>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
+  return (<>
+  <div>
+  <Header>Student Attendance App</Header>
+    <Container>
+      
+      <LoginForm>
+        <H2><h2>Login</h2></H2>
+        <Form onSubmit={addInfo}>
+          <FormGroup>
+            <Input
               type="email"
               id="email"
               required
-              placeholder="Enter your email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
+          </FormGroup>
+          <FormGroup>
+            
+            <Input
               type="password"
               id="password"
               required
-              placeholder="Enter your password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div className="form-group">
-            <label htmlFor="role">Role</label>
-            <select
-              id="role"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
+          </FormGroup>
+          <FormGroup>
+            
+            <Select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="" disabled>
-                Select Your Role
+                ...Select Your Role...
               </option>
               <option value="Faculty">Faculty</option>
               <option value="Student">Student</option>
-            </select>
-          </div>
-          <button className="button" type="submit">Login</button>
-        </form>
-      </div>
-      <footer>
-        <Link to="/register">New User Registration</Link>
-      </footer>
+            </Select>
+          </FormGroup>
+          <Button type="submit">Login</Button>
+        </Form>
+        <br />
+        <Link to="/register">New User?</Link>
+      </LoginForm>
+      <Footer>
+        
+      </Footer>
+    </Container>
     </div>
+    </>
   );
 };
 
 export default Home;
-
-
