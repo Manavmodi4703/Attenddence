@@ -6,7 +6,8 @@ export  const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 90vh;
-  background-color: #f0f0f0;
+  background-color: #dfdbdb;
+  
 `;
 
 
@@ -31,6 +32,7 @@ export const LoginForm = styled.div`
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 300px;
+  border-radius: 25px;
 `;
 
 export const Form = styled.form`
@@ -40,6 +42,7 @@ export const Form = styled.form`
 
 export const FormGroup = styled.div`
   margin-bottom: 1rem;
+
 `;
 
 export const Label = styled.label`

@@ -149,7 +149,7 @@ const Home = () => {
 
   return (<>
   <div>
-  <Header>Student Attendance App</Header>
+  <Header>AttendApp</Header>
     <Container>
       
       <LoginForm>
