@@ -49,16 +49,42 @@
 // }
 
 // export default Faculty
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./faculty.css"; 
+import axios from "axios";
 
 const Faculty = () => {
   const navigate = useNavigate();
+  const [name,setName] = useState("")
+  const [contact,setContact] = useState("")
+  const [password,setPassword] = useState("")
+  //const [role,setRole] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.target.value = "Loading";
+    e.target.succeed='true';
+    
+    axios.post("https://server-api1-li2k.onrender.com/api/user/add",
+    {name,contact,password}).then(res=>{
+      console.log(res.data);
+      alert("you are successfully registered")
+
+    }).catch(err=>{
+      console.log('error in registering',err)
+  
+    }).finally(()=>{
+      e.target.value="u r registered";
+      e.target.succeed='false';
+      setName('')
+      setContact('');
+      setPassword('');
+      
+    })
+  
     navigate("/");
+  
   };
 
   return (
@@ -72,59 +98,38 @@ const Faculty = () => {
           <div className="form-group">
             <label htmlFor="facultyName">Faculty Name</label>
             <input
+            value={name}
               type="text"
               id="facultyName"
+              onChange={e => setName(e.target.value)}
               required
               placeholder="Enter faculty name"
               pattern="[A-Za-z A-Za-z]+"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="idCode">ID Code</label>
-            <input
-              type="text"
-              id="idCode"
-              required
-              placeholder="Enter ID code"
-              pattern="[0-9]+"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              required
-              placeholder="Enter email"
-            />
-          </div>
+         
+          
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
+              onChange={e =>setPassword(e.target.value)}
               required
               placeholder="Enter password"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              required
-              placeholder="Confirm password"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="file">Upload Photo</label>
-            <input
-              type="file"
-              id="file"
-              required
-            />
-          </div>
-          <button type="submit">Submit</button>
+          <input type="text"
+          onChange={e=> setContact(e.target.value)}
+          placeholder="Contact" />
+          
+
+          
+           
+           
+       
+        
+          <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
       </div>
     </div>

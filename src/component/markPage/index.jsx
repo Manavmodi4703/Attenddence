@@ -22,7 +22,7 @@ const Mark = () => {
             <li key={student} className="student-item">
               {student}
               <div className="buttons">
-                <button  className="absent-btn" onClick={() => markAttendance(student, 'Absent')}>
+                <button className="absent-btn" onClick={() => markAttendance(student, 'Absent')}>
                   Absent 
                 </button>
                 <button className="present-btn" onClick={() => markAttendance(student, 'Present')}>

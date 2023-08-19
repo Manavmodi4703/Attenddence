@@ -118,9 +118,7 @@ const Student = () => {
           <div className="form-group">
             <label htmlFor="semester">Select your Semester</label>
             <select id="semester" required>
-              <option value="" disabled>
-                Semester
-              </option>
+              <option value="" disabled hidden>Select Semester</option>
               <option value="First">First</option>
               <option value="Second">Second</option>
               <option value="Third">Third</option>

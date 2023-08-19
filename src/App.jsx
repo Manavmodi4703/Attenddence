@@ -9,6 +9,9 @@ import Footer from "./component/footer";
 import Mark from "./component/markPage";
 import { Register } from "./component/register";
 import View from "./component/ViewPage";
+import "./App.css"
+
+
 
 
 export const App = () => {

@@ -9,22 +9,8 @@ const View = () => {
   }
   return (
     <div>
-      <table>
-        <thead>
-            Student name
-        </thead>
-        <tbody>Student1</tbody>
-        <tbody>Student1</tbody>
-        <tbody>Student1</tbody>
-        <tbody>Student1</tbody>
-        <tbody>Student1</tbody>
-        <thead>Marked Attendance</thead>
-        <tbody>A</tbody>
-        <tbody>A</tbody>
-        <tbody>A</tbody>
-        <tbody>A</tbody>
-        <tbody>A</tbody>
-      </table>
+     
+   
     </div>
   )
 }

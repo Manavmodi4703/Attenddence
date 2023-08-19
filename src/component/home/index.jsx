@@ -1,6 +1,7 @@
  import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
  import { Container,FormGroup,Footer,Header,LoginForm,Form,Label,Input,Select,Button,H2} from "./style";
+import axios from "axios";
 // import './home.css'
 
 
@@ -134,69 +135,141 @@ import { Link, useNavigate } from "react-router-dom";
 
 // export default Home;
 
+// const Home = () => {
+//   const [contact, setContact] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [role, setRole] = useState("");
+//   const navigate = useNavigate();
+
+//   const addInfo = (e) => {
+    
+//     e.preventDefault();
+//     axios.post("https://server-api1-li2k.onrender.com/api/user/login",
+//     contact,password)
+//     if (role === "Faculty") {
+//       navigate("/batch");
+
+//     }
+//   };
+
+//   return (<>
+//   <div>
+//   <header className="header">AttendApp</header>
+//     <container>
+      
+//       <loginform className="loginform">
+//         <H2><h2>Login</h2></H2>
+//         <Form onSubmit={addInfo}>
+//           <FormGroup>
+//             <Input
+//               type="text"
+//               id="text"
+//               required
+//               placeholder="Contact"
+//               value={contact}
+//               onChange={(e) => setContact(e.target.value)}
+//             />
+//           </FormGroup>
+//           <FormGroup>
+            
+//             <Input
+//               type="password"
+//               id="password"
+//               required
+//               placeholder="Password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//           </FormGroup>
+//           <FormGroup>
+            
+//              <Select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+//               <option value="" disabled>
+//                 ...Select Your Role...
+//               </option>
+//               <option value="Faculty">Faculty</option>
+//               <option value="Student">Student</option>
+//             </Select> 
+//           </FormGroup>
+//           <Button type="submit" >Login</Button>
+//         </Form>
+//         <br />
+//         <Link to="/register">New User?</Link>
+//       </loginform>
+//       <Footer>
+        
+//       </Footer>
+//     </container>
+//     </div>
+//     </>
+//   );
+// };
+
+// export default Home;
+
+
+
+
+
+import { StyledFormWrapper } from './style'; // Import your styled component from the styles.js file
+
 const Home = () => {
-  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
 
   const addInfo = (e) => {
     e.preventDefault();
+    axios.post("https://server-api1-li2k.onrender.com/api/user/login", contact, password);
     if (role === "Faculty") {
       navigate("/batch");
     }
   };
 
-  return (<>
-  <div>
-  <Header>AttendApp</Header>
-    <Container>
-      
-      <LoginForm>
-        <H2><h2>Login</h2></H2>
-        <Form onSubmit={addInfo}>
-          <FormGroup>
-            <Input
-              type="email"
-              id="email"
-              required
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </FormGroup>
-          <FormGroup>
-            
-            <Input
-              type="password"
-              id="password"
-              required
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </FormGroup>
-          <FormGroup>
-            
-            <Select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="" disabled>
-                ...Select Your Role...
-              </option>
-              <option value="Faculty">Faculty</option>
-              <option value="Student">Student</option>
-            </Select>
-          </FormGroup>
-          <Button type="submit">Login</Button>
-        </Form>
-        <br />
-        <Link to="/register">New User?</Link>
-      </LoginForm>
-      <Footer>
+  return (
+    <StyledFormWrapper>
+      <header className="header">AttendApp</header>
+      <form className="login-form" onSubmit={addInfo}>
+        <h2>Login</h2>
+        <input
+          type="text"
+          id="text"
+          required
+          placeholder="Contact"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          className="input-field"
+        />
         
-      </Footer>
-    </Container>
-    </div>
-    </>
+        <input
+        
+          type="password"
+          id="password"
+          required
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="input-field"
+        />
+        <select 
+          id="role"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="input-field"
+        >
+          <option value="" disabled>
+            ...Select Your Role...
+          </option>
+          <option value="Faculty">Faculty</option>
+          <option value="Student">Student</option>
+        </select>
+        <button type="submit" className="submit-button">Login</button>
+        <br />
+        <Link to="/register" className="link">New User?</Link>
+      </form>
+      {/* Footer component */}
+    </StyledFormWrapper>
   );
 };
 
