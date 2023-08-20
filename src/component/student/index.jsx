@@ -1,80 +1,57 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router'
 
-// const Student = () => {
-//   // const student = useSelector(state => state.student)
-
-//   const navigate = useNavigate();
-
-//   const handleSubmit = () =>
-//   {
-//     navigate('/');
-//   }
-//   return (
-//     <>
-//     <header>
-//       <h1>CSE Department</h1>
-//     </header>
-//       <form action="">
-//         <h1>Student Registration</h1>
-//         <input
-//           type="text"
-//           required
-//           placeholder="Student Name"
-//           pattern="[A-Za-z A-Za-z]+"
-//         />
-//         <input
-//           type="text"
-//           required
-//           placeholder="College ID"
-//           pattern="[A-Z]{1}[0-9]{6}"
-//         />
-//         <input
-//           type="text"
-//           required
-//           placeholder="Roll No"
-//           pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
-//         />
-//         <select required>
-//           <label htmlFor="">Select your Semester</label>
-//             <option selected disabled value="Year">Semester</option>
-//             <option value="First">First</option>
-//             <option value="Second">Second</option>
-//             <option value="Third">Third</option>
-//             <option value="Fourth">Fourth</option>
-//         </select>
-      
-//          <input type="email" required placeholder="Email" />
-//         <input type="password" required placeholder="Password" />
-//         <input type="password" required placeholder=" Confirm Password" />
-//         <input
-//           type="file"
-//           required
-//         />
-//         <input
-//           type="submit"
-//           value="Submit"
-//           onClick={handleSubmit}
-//         />
-//       </form>
-//       {/* {users.map(user => <div>{user.year}-{user.subject}-{user.section}</div>)} */}
-//       </>
-      
-
-//   )
-// }
-
-// export default Student
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import './student.css'; // Import the CSS file
+import './student.css'; 
+import axios from 'axios';
 
 const Student = () => {
   const navigate = useNavigate();
+  const [name,setName] = useState('')
+  const[id,setId] = useState('') 
+  const [contact, setContact] = useState("");
+  const [password, setPassword] = useState("");
+  const[rollNo,setRollNo] = useState('');
+  const[semester,setSemester] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = () => {
-    navigate('/');
+  const handleSubmit1 = (e) => {
+    e.preventDefault();
+    e.target.value = "Loading";
+    e.target.succeed = "true";
+
+    if(password !== confirmPassword){
+      alert("Passwords don't match")
+    }
+
+    axios
+      .post("https://server-api1-li2k.onrender.com/api/user/add", 
+      {
+        name,
+        contact,
+        password,
+        id,
+        rollNo,
+        semester
+      })
+      .then((res) => {
+        console.log(res.data);
+        alert("you are successfully registered");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("error in registering", err);
+      })
+      .finally(() => {
+        e.target.value = "Registered";
+        e.target.succeed = "false";
+        setName("");
+        setContact("");
+        setPassword("");
+        setRollNo("");
+        setId("");
+        setSemester("")
+      });
+    
   };
 
   return (
@@ -92,7 +69,8 @@ const Student = () => {
               id="studentName"
               required
               placeholder="Enter student name"
-              pattern="[A-Za-z A-Za-z]+"
+             // pattern="[A-Za-z A-Za-z]+"
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -102,7 +80,8 @@ const Student = () => {
               id="collegeID"
               required
               placeholder="Enter college ID"
-              pattern="[A-Z]{1}[0-9]{6}"
+              //pattern="[A-Z]{1}[0-9]{6}"
+              onChange={(e) => setId(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -112,30 +91,42 @@ const Student = () => {
               id="rollNo"
               required
               placeholder="Enter roll number"
-              pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
+             // pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
+              onChange={(e) =>setRollNo(e.target.value)}
             />
           </div>
+       <div className='form-group'>
+        <label htmlFor="semester">Semester</label>
+        <input 
+        type="text" 
+        id="semester"
+        required
+        placeholder='1st/2nd/3rd'
+        pattern='[0-8]{1}[a-z]{2}'
+        onChange={(e) => setSemester(e.target.value)}
+
+        />
+
+       </div>
           <div className="form-group">
-            <label htmlFor="semester">Select your Semester</label>
-            <select id="semester" required>
-              <option value="" disabled hidden>Select Semester</option>
-              <option value="First">First</option>
-              <option value="Second">Second</option>
-              <option value="Third">Third</option>
-              <option value="Fourth">Fourth</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" required placeholder="Enter email" />
+            <label htmlFor="contact">Contact</label>
+            <input
+            type="text"
+            id="contact" 
+            required 
+            placeholder="Enter Contact"
+            onChange={(e)=>setContact(e.target.value)}
+             />
+
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
-              type="password"
+              type="text"
               id="password"
               required
               placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -145,16 +136,16 @@ const Student = () => {
               id="confirmPassword"
               required
               placeholder="Confirm password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="file">Upload Photo</label>
-            <input type="file" id="file" required />
-          </div>
-          <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
-      </div>
-    </div>
+          <button type="submit" onClick={handleSubmit1}>
+            Submit
+          </button> 
+          </form>
+       </div>
+       </div>
+    
   );
 };
 

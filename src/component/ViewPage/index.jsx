@@ -1,18 +1,47 @@
-import React from 'react'
-import { useNavigate } from 'react-router';
+// import React from 'react';
+// import { useNavigate } from 'react-router';
 
-const View = () => {
-    const navigate = useNavigate();
-  const add=(e)=>{
-    e.preventDefault()
-    navigate('/view-attendance')
-  }
+
+// const ViewAttendance = ({ students }) => {
+
+//   const navigate = useNavigate()
+ 
+
+//   navigate("/mark-attendance")
+  
+//   return (
+//     <div>
+//       <h2>View Attendance</h2>
+//       <ul>
+//         {students.map((student) => (
+//           <li key={student.id}>
+//             {student.name} - {student.attendance}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default ViewAttendance;
+import React from 'react';
+
+const ViewAttendance = ({ attendance }) => {
   return (
-    <div>
+    <div className="view-attendance">
+      <h2>View Attendance</h2>
+      <ul>
+        {Object.keys(attendance).map((student) => (
+          <li key={student}>
+            {student}: {attendance[student]}
+          </li>
+        ))}
+      </ul>
      
-   
     </div>
-  )
-}
+  );
+};
 
-export default View
+export default ViewAttendance;
+
+
