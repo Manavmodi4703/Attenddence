@@ -18,6 +18,7 @@ export const StyledFormWrapper = styled.div`
       margin : auto;
        background-color: #a09d9d8f;
        text-align: center;
+       font-family: fantasy;
   }
   .login-form{
     background-color: white;
@@ -64,9 +65,7 @@ export const StyledFormWrapper = styled.div`
       margin-bottom: 1rem;
 
     }
-    .header{
-      font-family: fantasy;
-    }
+  h
 
   }
 `;

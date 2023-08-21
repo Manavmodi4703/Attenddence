@@ -21,10 +21,10 @@ const Home = () => {
       .then((res) => {
         console.log("Details", res.data);
         alert("Logged IN successfully");
-        if (res.data.role === "Faculty") {
+        if (res.data.role.toLowerCase() === "faculty") {
           navigate("/batch");
         }
-        else{
+        else if(res.data.role.toLowerCase() === "student"){
           navigate('/student-login')
         }
       })
@@ -69,18 +69,18 @@ const Home = () => {
           className="input-field"
         />
         <br />
-        <select
+        {/* <select
           id="role"
           value={role}
           onChange={(e) => setRole(e.target.value)}
           className="input-field"
         >
-          <option value="" disabled>
+          <option value={role} disabled>
             ...Select Your Role...
           </option>
           <option value="Faculty">Faculty</option>
           <option value="Student">Student</option>
-        </select>
+        </select> */}
         <button type="submit" className="submit-button">
           Login
         </button>
