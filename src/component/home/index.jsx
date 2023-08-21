@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { StyledFormWrapper } from "./style";
+import Faculty from "../faculty";
 
 const Home = () => {
   const [contact, setContact] = useState("");
@@ -21,16 +22,16 @@ const Home = () => {
       .then((res) => {
         console.log("Details", res.data);
         alert("Logged IN successfully");
-        if (res.data.role === "Faculty") {
-          navigate("/batch");
+        if (res.data.role.toLowerCase() === "student") {
+          navigate("/student-login");
         }
-        else{
-          navigate('/student-login')
+        else if(res.data.role.toLowerCase() === "faculty"){
+          navigate('/batch')
         }
       })
       .catch((err) => {
         console.log("Error while logging ", err);
-        alert("An error occured!Wrong Credentials");
+        alert("An error occured! Wrong Credentials");
       })
       .finally(() => {
         e.target.value = "Success";
@@ -69,18 +70,6 @@ const Home = () => {
           className="input-field"
         />
         <br />
-        <select
-          id="role"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-          className="input-field"
-        >
-          <option value="" disabled>
-            ...Select Your Role...
-          </option>
-          <option value="Faculty">Faculty</option>
-          <option value="Student">Student</option>
-        </select>
         <button type="submit" className="submit-button">
           Login
         </button>

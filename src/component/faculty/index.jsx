@@ -8,14 +8,20 @@ const Faculty = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
+  const [id, setId] = useState("")
   const [password, setPassword] = useState("");
-  const [role,setRole] = useState("Faculty")
+  const [confirmPassword,setConfirmPassword] = useState("")
+  const [role,setRole] = useState("Faculty");
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.value = "Loading";
     e.target.succeed = "true";
-
+    
+    if(password !== confirmPassword){
+      alert("Passwords don't match")
+    }
     axios
       .post("https://server-api1-li2k.onrender.com/api/user/add", {
         name,
@@ -36,7 +42,9 @@ const Faculty = () => {
         e.target.succeed = "false";
         setName("");
         setContact("");
+        setId("");
         setPassword("");
+        setConfirmPassword("");
         setRole("")
       });
   };
@@ -71,6 +79,16 @@ const Faculty = () => {
               placeholder="Contact"
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="ID">ID</label>
+            <input
+              type="text"
+              id="ID"
+              required
+              placeholder="Enter ID"
+              onChange={(e) => setId(e.target.value)}
+            />
+          </div>
 
           <div className="form-group">
             <label htmlFor="password">Set Password</label>
@@ -80,6 +98,16 @@ const Faculty = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter password"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              required
+              placeholder="Confirm password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
        
