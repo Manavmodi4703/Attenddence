@@ -9,7 +9,7 @@ const Faculty = () => {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  //const [role,setRole] = useState("")
+  const [role,setRole] = useState("Faculty")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +21,7 @@ const Faculty = () => {
         name,
         contact,
         password,
+        role 
       })
       .then((res) => {
         console.log(res.data);
@@ -36,6 +37,7 @@ const Faculty = () => {
         setName("");
         setContact("");
         setPassword("");
+        setRole("")
       });
   };
 

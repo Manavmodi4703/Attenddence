@@ -13,6 +13,7 @@ const Student = () => {
   const[rollNo,setRollNo] = useState('');
   const[semester,setSemester] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] =useState("Student")
 
   const handleSubmit1 = (e) => {
     e.preventDefault();
@@ -31,7 +32,8 @@ const Student = () => {
         password,
         id,
         rollNo,
-        semester
+        semester,
+        role
       })
       .then((res) => {
         console.log(res.data);
@@ -50,6 +52,7 @@ const Student = () => {
         setRollNo("");
         setId("");
         setSemester("")
+        setRole("")
       });
     
   };
