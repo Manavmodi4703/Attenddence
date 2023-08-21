@@ -21,7 +21,7 @@ const Home = () => {
       .then((res) => {
         console.log("Details", res.data);
         alert("Logged IN successfully");
-        if (role === "Faculty"  ) {
+        if (role === "Faculty") {
           navigate("/batch");
         }
         else{

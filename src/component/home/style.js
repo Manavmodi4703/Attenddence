@@ -64,6 +64,9 @@ export const StyledFormWrapper = styled.div`
       margin-bottom: 1rem;
 
     }
+    .header{
+      font-family: fantasy;
+    }
 
   }
 `;

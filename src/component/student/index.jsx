@@ -62,7 +62,7 @@ const Student = () => {
       <div className="registration-form">
         <h1>Student Registration</h1>
         <form>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="studentName">Student Name</label>
             <input
               type="text"
@@ -107,7 +107,7 @@ const Student = () => {
 
         />
 
-       </div>
+       </div> */}
           <div className="form-group">
             <label htmlFor="contact">Contact</label>
             <input
