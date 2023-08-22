@@ -65,14 +65,14 @@ const Student = () => {
       <div className="registration-form">
         <h1>Student Registration</h1>
         <form>
-          {/* <div className="form-group">
+          <div className="form-group">
             <label htmlFor="studentName">Student Name</label>
             <input
               type="text"
               id="studentName"
               required
               placeholder="Enter student name"
-             // pattern="[A-Za-z A-Za-z]+"
+             pattern="[A-Za-z A-Za-z]+"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -83,7 +83,7 @@ const Student = () => {
               id="collegeID"
               required
               placeholder="Enter college ID"
-              //pattern="[A-Z]{1}[0-9]{6}"
+              pattern="[A-Z]{1}[0-9]{6}"
               onChange={(e) => setId(e.target.value)}
             />
           </div>
@@ -94,23 +94,21 @@ const Student = () => {
               id="rollNo"
               required
               placeholder="Enter roll number"
-             // pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
+             pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
               onChange={(e) =>setRollNo(e.target.value)}
             />
           </div>
        <div className='form-group'>
-        <label htmlFor="semester">Semester</label>
+        <label htmlFor="semester">Year</label>
         <input 
         type="text" 
-        id="semester"
+        id="year"
         required
-        placeholder='1st/2nd/3rd'
-        pattern='[0-8]{1}[a-z]{2}'
+        placeholder='1st/2nd/3rd/4th'
         onChange={(e) => setSemester(e.target.value)}
-
         />
 
-       </div> */}
+       </div>
           <div className="form-group">
             <label htmlFor="contact">Contact</label>
             <input

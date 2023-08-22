@@ -31,7 +31,7 @@ export const App = () =>{
       <Route path = "/student" element = {<Student />} />
       <Route path = "/faculty" element = {<Faculty />} />
       <Route path = "/batch" element = {<Batch />} />
-     <Route path="/mark-attendance" element = {<Mark/>}></Route>
+     <Route path="/mark-attendance/:student" element = {<Mark/>}></Route>
      <Route path="/view-attendance" element = {<ViewAttendance/>}></Route>
      
       
