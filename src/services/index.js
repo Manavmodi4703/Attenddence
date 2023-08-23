@@ -1,63 +1,8 @@
-// import React, { useState } from 'react'
-// import { useNavigate } from 'react-router'
-// import './batch.css'
-
-// const Batch = () => {
-
-//   const [activeSection, setActiveSection] = useState(''); // State to track active section
-
-//   const sections = ['I', 'II', 'III', 'IV'];
-
-//   const handleSectionClick = (section) => {
-//     setActiveSection(section);
-//   };
-//   return (
-
-
-
-// <div>
-// <table>
-//   <tbody>
-//     <tr>
-//       {sections.map((section) => (
-//         <th key={section}>
-//           <button onClick={() => handleSectionClick(section)}>
-//             {section}
-//           </button>
-//         </th>
-//       ))}
-//     </tr>
-//   </tbody>
-// </table>
-
-// <input type="search" name="" id="" />
-// <input type="button" value="search" />
-
-// <table>
-//   <tbody>
-//     {sections.map((section) => (
-//       <tr
-//         key={section}
-//         style={{ display: activeSection === section ? 'table-row' : 'none' }}
-//       >
-//         {Array.from({ length: 4 }, (_, index) => (
-//           <th key={index}>
-//             <input type="button" value={`CS-${section}-A`} />
-//           </th>
-//         ))}
-//       </tr>
-//     ))}
-//   </tbody>
-// </table>
-// </div>
-// );
-// };
-
-// export default Batch;
-
 import axios from "axios";
 
-export const batch = {
+
+export const services = {
+    
     user : {
         login : payload => axios.post(`https://server-api1-li2k.onrender.com/api/user/login`, payload),
         read : _ => axios.get(`https://server-api1-li2k.onrender.com/api/user/read`)
@@ -109,4 +54,3 @@ export const batch = {
         },1000)
     })
 }
-

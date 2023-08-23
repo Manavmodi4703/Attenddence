@@ -4,14 +4,14 @@ import { useNavigate } from "react-router";
 import "./faculty.css";
 import axios from "axios";
 
-const Faculty = () => {
+const FacultyRegistration = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [id, setId] = useState("")
   const [password, setPassword] = useState("");
   const [confirmPassword,setConfirmPassword] = useState("")
-  const [role,setRole] = useState("Faculty");
+  const [role,setRole] = useState("");
 
   
   const handleSubmit = (e) => {
@@ -52,7 +52,7 @@ const Faculty = () => {
   return (
     <div className="container">
       <header>
-        <h2>CSE Department</h2>
+        
       </header>
       <div className="registration-form">
         <h2>Faculty Registration</h2>
@@ -90,6 +90,16 @@ const Faculty = () => {
               onChange={(e) => setId(e.target.value)}
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="contact">Contact</label>
+            <input
+              type="text"
+              required
+              id="contact"
+              onChange={(e) => setContact(e.target.value)}
+              placeholder="Contact"
+            />
+          </div>
 
           <div className="form-group">
             <label htmlFor="password">Set Password</label>
@@ -122,4 +132,4 @@ const Faculty = () => {
   );
 };
 
-export default Faculty;
+export default FacultyRegistration;

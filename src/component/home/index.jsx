@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { StyledFormWrapper } from "./style";
 // import Faculty from "../faculty";
-import { batch } from "../batch";
+
+import { services } from "../../services";
 
 const Home = () => {
   const [contact, setContact] = useState("");
@@ -16,7 +17,7 @@ const Home = () => {
     e.target.value = "Wait";
     e.target.succeed = "true";
 
-  batch.user.login({
+  services.user.login({
         contact,
         password,
       })
@@ -27,7 +28,7 @@ const Home = () => {
           navigate("/student-login");
         }
         else if(res.data.role.toLowerCase() === "faculty"){
-          navigate('/faculty-login')
+          navigate("/faculty-login")
         }
       })
       .catch((err) => {

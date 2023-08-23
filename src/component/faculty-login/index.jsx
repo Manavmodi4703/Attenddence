@@ -1,24 +1,39 @@
 import React, { useEffect, useState } from 'react'
  import Wrapper from './style'
-import { batch } from '../batch'
-import { useNavigate } from 'react-router'
 
-const Faculty = () => {
+import { useNavigate } from 'react-router'
+import { services } from '../../services'
+
+const FacultyLogin = () => {
+
+    const [loading,setLoading]= useState(false)
+
+  
 
   const [sections, setSections] = useState([])
   const [filteredSections, setFilteredSections] = useState(sections)
 
   const navigate = useNavigate()
 
-  navigate("/faculty-login")
+ 
 
   useEffect(() => {
-    batch.getSections()
+    setLoading(true)
+    services.getSections()
     .then(res => {
       setSections(res.data)
       setFilteredSections(res.data)
+      navigate("/faculty-login")
+      
+    }).finally(()=>{
+        setLoading(false)
     })
   },[])
+
+ 
+
+
+  
 
   const filter = (e) => {
     setFilteredSections([...sections].filter(section => section.name.toLowerCase().startsWith(e.target.value.toLowerCase())))
@@ -28,10 +43,14 @@ const Faculty = () => {
     navigate(`/attendanceSheet?sectionId=${section.id}`)
   }
 
+  
+    const handleLogout = ()=> {
+        window.location = '/'
+    }
   return (
     <Wrapper>
       <div className="inner">
-
+        <a style={{right: 0}} href="#logout" onClick={handleLogout}>Logout</a>
       <input
         type="search"
         placeholder='Filter the sections here ...'
@@ -48,4 +67,4 @@ const Faculty = () => {
   )
 }
 
-export default Faculty
+export default FacultyLogin

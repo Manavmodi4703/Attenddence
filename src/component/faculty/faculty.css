@@ -85,6 +85,10 @@
   
   .form-group {
     margin-bottom: 15px;
+    width: 88%;
+    padding: 3px;
+    border: 0px solid #ccc;
+    border-radius: 13px;
   }
   
   .form-group label {
