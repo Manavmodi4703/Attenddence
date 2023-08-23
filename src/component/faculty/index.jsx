@@ -84,6 +84,7 @@ const Faculty = () => {
             <input
               type="text"
               id="ID"
+              value ={id}
               required
               placeholder="Enter ID"
               onChange={(e) => setId(e.target.value)}

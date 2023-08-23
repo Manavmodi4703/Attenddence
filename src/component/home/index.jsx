@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { StyledFormWrapper } from "./style";
-import Faculty from "../faculty";
+// import Faculty from "../faculty";
+import { batch } from "../batch";
 
 const Home = () => {
   const [contact, setContact] = useState("");
@@ -14,8 +15,8 @@ const Home = () => {
     e.preventDefault();
     e.target.value = "Wait";
     e.target.succeed = "true";
-    axios
-      .post("https://server-api1-li2k.onrender.com/api/user/login", {
+
+  batch.user.login({
         contact,
         password,
       })
@@ -26,7 +27,7 @@ const Home = () => {
           navigate("/student-login");
         }
         else if(res.data.role.toLowerCase() === "faculty"){
-          navigate('/batch')
+          navigate('/faculty-login')
         }
       })
       .catch((err) => {
@@ -70,7 +71,7 @@ const Home = () => {
           className="input-field"
         />
         <br />
-       
+
         <button type="submit" className="submit-button">
           Login
         </button>
