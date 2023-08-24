@@ -19,17 +19,17 @@ const Home = (role) => {
 
   services.user.login({
         contact,
-        password,
+        password
       })
       .then((res) => {
         console.log("Details", res.data);
         console.log(role);
-        console.log(res.data.role)
+        console.log(res.data.user.role)
         alert("Logged IN successfully");
-        if (res.data.role.toLowerCase() === "student") {
+        if (res.data.user.role.toLowerCase() === "student") {
           navigate("/studentdashboard");
         }
-        else if(res.data.role.toLowerCase() === "faculty"){
+        else if(res.data.user.role.toLowerCase() === "faculty"){
           navigate("/faculty-login")
         }
       })

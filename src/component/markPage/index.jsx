@@ -8,7 +8,7 @@ const Mark = () => {
 const [myData, setMyData] = useState([])
 useEffect(() => {
   axios.get
-  ("https://server-api1-li2k.onrender.com/api/user/read")
+  ("https://quizattendace.onrender.com/api/user/read")
   .then((res) =>
   setMyData(res.data.filter(user => user.role === 'student'))
   );

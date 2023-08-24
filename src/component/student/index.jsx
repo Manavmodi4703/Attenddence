@@ -27,7 +27,7 @@ const Student = () => {
     }
 
     axios
-      .post("https://server-api1-li2k.onrender.com/api/user/add", 
+      .post("https://quizattendace.onrender.com/api/user/add", 
       {
         name,
         contact,
