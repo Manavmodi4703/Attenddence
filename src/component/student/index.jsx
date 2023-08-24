@@ -1,8 +1,10 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import './student.css'; 
+
 import axios from 'axios';
+import { Wrapper } from './student';
+
 
 const Student = () => {
   const navigate = useNavigate();
@@ -58,10 +60,9 @@ const Student = () => {
   };
 
   return (
+    <Wrapper>
     <div className="container">
-      <header>
-        <h1>CSE Department</h1>
-      </header>
+    
       <div className="registration-form">
         <h1>Student Registration</h1>
         <form>
@@ -76,39 +77,8 @@ const Student = () => {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="collegeID">College ID</label>
-            <input
-              type="text"
-              id="collegeID"
-              required
-              placeholder="Enter college ID"
-              pattern="[A-Z]{1}[0-9]{6}"
-              onChange={(e) => setId(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="rollNo">Roll No</label>
-            <input
-              type="text"
-              id="rollNo"
-              required
-              placeholder="Enter roll number"
-             pattern="[0-9]{2}[A-Z]{5}[0-9]{3}"
-              onChange={(e) =>setRollNo(e.target.value)}
-            />
-          </div>
-       <div className='form-group'>
-        <label htmlFor="semester">Year</label>
-        <input 
-        type="text" 
-        id="year"
-        required
-        placeholder='1st/2nd/3rd/4th'
-        onChange={(e) => setSemester(e.target.value)}
-        />
-
-       </div>
+      
+       
           <div className="form-group">
             <label htmlFor="contact">Contact</label>
             <input
@@ -146,6 +116,7 @@ const Student = () => {
           </form>
        </div>
        </div>
+       </Wrapper>
     
   );
 };

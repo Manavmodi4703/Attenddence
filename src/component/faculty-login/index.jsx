@@ -6,7 +6,7 @@ import { services } from '../../services'
 
 const FacultyLogin = () => {
 
-    const [loading,setLoading]= useState(false)
+  //  const [loading,setLoading]= useState(false)
 
   
 
@@ -18,15 +18,12 @@ const FacultyLogin = () => {
  
 
   useEffect(() => {
-    setLoading(true)
+  //  setLoading(true)
     services.getSections()
     .then(res => {
       setSections(res.data)
       setFilteredSections(res.data)
-      navigate("/faculty-login")
       
-    }).finally(()=>{
-        setLoading(false)
     })
   },[])
 
@@ -50,7 +47,7 @@ const FacultyLogin = () => {
   return (
     <Wrapper>
       <div className="inner">
-        <a style={{right: 0}} href="#logout" onClick={handleLogout}>Logout</a>
+        <a   href="#logout" onClick={handleLogout}><input className='logoutbtn' type="button" value="Logout" /></a>
       <input
         type="search"
         placeholder='Filter the sections here ...'

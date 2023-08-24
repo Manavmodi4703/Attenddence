@@ -6,10 +6,10 @@ import { StyledFormWrapper } from "./style";
 
 import { services } from "../../services";
 
-const Home = () => {
+const Home = (role) => {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+
   const navigate = useNavigate();
 
   const addInfo = (e) => {
@@ -23,9 +23,11 @@ const Home = () => {
       })
       .then((res) => {
         console.log("Details", res.data);
+        console.log(role);
+        console.log(res.data.role)
         alert("Logged IN successfully");
         if (res.data.role.toLowerCase() === "student") {
-          navigate("/student-login");
+          navigate("/studentdashboard");
         }
         else if(res.data.role.toLowerCase() === "faculty"){
           navigate("/faculty-login")
@@ -70,6 +72,7 @@ const Home = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="input-field"
+          
         />
         <br />
 

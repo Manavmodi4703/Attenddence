@@ -1,4 +1,6 @@
-/* Student.css */
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
 .container {
     display: flex;
     flex-direction: column;
@@ -8,7 +10,7 @@
     background-color: #f4f4f4;
   }
   
-  header {
+  .header {
     background-color: grey;
     text-align: center;
     color: black;
@@ -67,4 +69,4 @@
   .registration-form input[type="submit"]:hover {
     background-color: #0056b3;
   }
-  
+  `

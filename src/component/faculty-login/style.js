@@ -22,6 +22,15 @@ const Wrapper = styled.section`
         border : solid thin #ccc;
         font-size : 1.2rem;
     }
+   .logoutbtn{
+    text-align: center;
+    margin-left: 37%;
+    font-size: large
+   }
+   .logoutbtn:hover{
+    color:blue
+   }
+
 
 `
 

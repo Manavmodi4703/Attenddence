@@ -3,8 +3,8 @@ import { services } from '../../services'
 
 const AttendanceSheet = () => {
 
-    let sectionId = window.location.search.split('=')[1]
-    let date = new Date()
+   // let sectionId = window.location.search.split('=')[1]
+   // let date = new Date()
 
     const [students, setStudents] = useState([])
     

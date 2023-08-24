@@ -37,7 +37,8 @@ const ViewAttendance = ({ attendance }) => {
           </li>
         ))}
       </ul>
-     
+
+    
     </div>
   );
 };

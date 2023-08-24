@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 // import { Faculty } from '../faculty'
 
-export const Register = () => {
+export const Register = ({role,setRole}) => {
 
 
-  const [role, setRole] = useState(null)
+ 
   const navigate = useNavigate()
 
   const roleChange = (e) => {
     const selectedRole = e.target.value;
     setRole(selectedRole)
-if(selectedRole === "Faculty"){
+  if(selectedRole === "Faculty"){
   navigate("/faculty")
- }
- else{
+  }
+  else{
   navigate("/student")
  }
 };

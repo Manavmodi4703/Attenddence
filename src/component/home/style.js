@@ -18,7 +18,8 @@ export const StyledFormWrapper = styled.div`
       margin : auto;
        background-color: #a09d9d8f;
        text-align: center;
-       font-family: fantasy;
+       
+      
   }
   .login-form{
     background-color: white;
@@ -53,7 +54,7 @@ export const StyledFormWrapper = styled.div`
       border: 1px solid #ccc;
       border-radius: 3px;
       font-size: 1rem;
-      width: 100%;
+      width: 95%;
 
     }
     .login-field{
