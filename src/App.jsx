@@ -16,13 +16,18 @@ import AttendanceSheet from "./component/attendanceSheet";
 import FacultyRegistration from "./component/faculty";
 import StudentDashboard from "./component/student-dashboard";
 import { useState } from "react";
+import Header from "./component/header";
+
 
 
 export const App = () => {
 
   const[role,setRole] = useState("Student")
   return (
+    
     <BrowserRouter>
+    <Header/>
+    
    
       <Routes>
         <Route path="/" element={<Home role={role} />}></Route>

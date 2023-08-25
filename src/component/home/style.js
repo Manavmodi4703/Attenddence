@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const StyledFormWrapper = styled.div`
@@ -16,7 +15,7 @@ export const StyledFormWrapper = styled.div`
   .header{
     font-size: 40px;
       margin : auto;
-       background-color: #a09d9d8f;
+       
        text-align: center;
        
       

@@ -190,7 +190,7 @@ const StudentDashboard = () => {
         <header className="header">Student Dashboard</header>
         <br />
         <a href="#logout" onClick={handleLogout}><input className='logout' type="button" value="logout" /></a>
-        <p>Can I ask some more Details</p>
+        <p>Can I ask some more Details?</p>
 
      
       <br />
@@ -215,15 +215,8 @@ const StudentDashboard = () => {
      pattern='[1-4]{1}[a-z]{2}'
      
      />
-
-    <label htmlFor="section">Enter your Section </label>
-    <input
-    type="text"
-    value={section}
-    required
-    onChange={(e)=>setSection(e.target.value)}
-    placeholder='A/B'
-    />
+ 
+   <label htmlFor="">Select Section</label>
     <select className='select' name="" id="">
         <option disabled selected value="">..Select Section...</option>
         <option value="CS-I-A">CS-I-A</option>

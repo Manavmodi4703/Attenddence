@@ -61,6 +61,7 @@ export const Wrapper = styled.div`
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    
   }
   .view-attendance-button {
     background-color: #28a745;
@@ -70,5 +71,12 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+  }
+  .select{
+    width: 105%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
   }
 `;
