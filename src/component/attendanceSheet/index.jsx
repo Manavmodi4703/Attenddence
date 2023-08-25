@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../../services'
+import { useNavigate } from 'react-router'
 
 const AttendanceSheet = () => {
 
-    let sectionId = window.location.search.split('=')[1]
+    let sectionId = new URLSearchParams(window.location.search).get('sectionId')
    let subjectId = new URLSearchParams(window.location.search).get('subjectId')
-    let date = new Date()
+    let date = new Date();
     let Attendance = {
       subjectId: '',
       sectionId: '',
       attendance:{
         sectionId:{
           subjectId:{
-
+            date: ['true','false']
           }
         }
 
@@ -21,33 +22,34 @@ const AttendanceSheet = () => {
 
     const [students, setStudents] = useState([])
     const [attendance,setAttendance] = useState([])
-
+    const navigate = useNavigate()
     
     useEffect(() => {
         services.user.read()
         .then(res => {
-          const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student')
+          const studentList = res.data.filter(user => user.role && user.role.toLowerCase() === 'student' && user.section === sectionId)
             setStudents(studentList)
             setAttendance(new Array(studentList.length).fill(false));
 
         }).catch((err)=>{
           alert("error in fetching" ,err)
         })
-    }, [])
+    }, [sectionId])
 
-    const markAttendance = () => {
-      const payload = {
-        sectionId: sectionId,
-        subjectId: subjectId,
-        attendance: attendance.map(status => status ? "true" : "false")
-      };
+    const MarkAttendance = () => {
+      // const payload = {
+      //   sectionId: sectionId,
+      //   subjectId: subjectId,
+      //   attendance: attendance.map(status => status ? "true" : "false")
+      // };
       
-    services.user.markAttendance({payload})
+    services.user.markAttendance({sectionId,subjectId,attendance})
     .then((res) =>{
-      console.log("Attendance successful",res.data)
+      console.log("Attendance successful",res.data);
     }).catch(err =>{
       console.log("error in marking ",err)
     })
+  }
 
 
   const toggleAttendance = (studentIndex, status) => {
@@ -62,7 +64,7 @@ const AttendanceSheet = () => {
     {students.map((student, index) => (
       <div className="student-row" key={student.id}>
         <div className="student-info">
-          <img src={student.photoUrl} alt={student.name} />
+        
           <p>{student.name}</p>
         </div>
         <div className="attendance-buttons">
@@ -81,12 +83,12 @@ const AttendanceSheet = () => {
           </div>
         </div>
       ))}
-      <button className="mark-button" onClick={markAttendance}>Submit Attendance </button>
+      <button className="mark-button" onClick={MarkAttendance}>Submit Attendance </button>
     </div>
 
 
   )
 }
-}
+
 
 export default AttendanceSheet;

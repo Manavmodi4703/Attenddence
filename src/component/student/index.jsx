@@ -70,6 +70,7 @@ const Student = () => {
             <label htmlFor="studentName">Student Name</label>
             <input
               type="text"
+              value={name}
               id="studentName"
               required
               placeholder="Enter student name"
