@@ -16,6 +16,7 @@ import AttendanceSheet from "./component/attendanceSheet";
 import FacultyRegistration from "./component/faculty";
 import StudentDashboard from "./component/student-dashboard";
 import { useState } from "react";
+import SectionStudents from "./component/sectionStudents";
 
 export const App = () => {
 
@@ -32,6 +33,7 @@ export const App = () => {
        <Route path="studentdashboard" element ={<StudentDashboard/>}></Route>
         <Route path="/view-attendance" element={<ViewAttendance />}></Route>
         <Route path="/attendanceSheet" element = {< AttendanceSheet />}></Route>
+        <Route path="/section-students/:sectionId" element={<SectionStudents />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

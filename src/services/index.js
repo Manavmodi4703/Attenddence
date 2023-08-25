@@ -1,16 +1,23 @@
 import axios from "axios";
 
-
+const url = "https://quizattendace.onrender.com/api/attendance/read";
 export const services = {
     
+    
+getStudentsforSection: (sectionId) =>{
+    return axios.get(`$(url)/students?studentId=${sectionId}`)
+},
+
     user : {
         login : payload => axios.post("https://quizattendace.onrender.com/api/user/login", payload),
         read : _ => axios.get(`https://quizattendace.onrender.com/api/user/read`),
         update : payload => axios.put('https://quizattendace.onrender.com/api/user/update',payload),
         markAttendance : payload => axios.post("https://quizattendace.onrender.com/api/user/mark",payload),
-        resetPassword : payload => axios.post("https://quizattendace.onrender.com/api/user/resetPassword",payload)
+        resetPassword : payload => axios.post("https://quizattendace.onrender.com/api/user/resetPassword",payload),
+        readAttendance :_=> axios.post("https://quizattendace.onrender.com/api/attendance/read")
 
     },
+
     getSections : () => new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({

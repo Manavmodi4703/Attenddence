@@ -24,7 +24,7 @@ input[type="search"] {
   min-width: 150px;
   min-height: 150px;
   text-align: center;
-  line-height: 150px;
+  line-height: 35px;
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 5px;
