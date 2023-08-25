@@ -5,18 +5,14 @@ import { StyledFormWrapper } from "./style";
 // import Faculty from "../faculty";
 
 import { services } from "../../services";
+import ForgotPassword from "../forgotPassword";
 
 const Home = ({role}) => {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
   const [newPassword,setNewPassword] = useState("")
 
-  const resetPassword=()=>{
-    services.user.read({contact,password})
-    .then((res)=>{
-      
-    })
-  }
+
 
   const navigate = useNavigate();
 
@@ -32,6 +28,7 @@ const Home = ({role}) => {
       .then((res) => {
         console.log("Details", res.data);
         console.log(role);
+        window.localStorage.setItem( "USER", JSON.stringify(res.data.user))
         console.log(res.data.user.role)
         alert("Logged IN successfully");
         if (res.data.user.role.toLowerCase() === "student") {
@@ -51,7 +48,6 @@ const Home = ({role}) => {
         setContact("");
         setPassword("");
       });
-
     
   };
 
@@ -82,7 +78,7 @@ const Home = ({role}) => {
           className="input-field"
           
         />
-        <Link className ="forgot" to ="">forgot password</Link>
+        <Link to="/forgot-password" className ="forgot" >forgot password</Link>
         <br />
 
         <button type="submit" className="submit-button">

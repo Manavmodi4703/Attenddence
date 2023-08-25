@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from './style';
 import { services } from '../../services';
-import { Navigate, useNavigate } from 'react-router';
+import {  useNavigate } from 'react-router';
 
 
 const FacultyLogin = (setSelectedRole) => {
@@ -14,8 +14,13 @@ const FacultyLogin = (setSelectedRole) => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [filteredSections, setFilteredSections] = useState(sections);
   const navigate = useNavigate()
-  
 
+  useEffect(() => {
+    if (!localStorage.getItem("USER")) window.location = "/";
+  }, []);
+
+  
+  
   useEffect(() => {
     setLoading(true)
     services.getSections()
@@ -24,7 +29,7 @@ const FacultyLogin = (setSelectedRole) => {
       setFilteredSections(res.data)
       setLoading(true)
     })
-  },[])
+  },[]);
  
 
   const filter = (e) => {
@@ -33,14 +38,15 @@ const FacultyLogin = (setSelectedRole) => {
 
   const gotoSheet = () => {
     if(selectedSection && selectedSubject){
-    navigate(`/attendanceSheet?sectionId${selectedSection} subjectId${selectedSubject}` )
+    navigate(`/attendanceSheet?sectionId=${selectedSection}&subjectId=${selectedSubject}` )
     }
-    else{ alert("Section or subject not Selected");}
+    else{ 
+      alert("Section or subject not Selected");}
   }
 
   
     const handleLogout = ()=> {
-      
+      localStorage.clear();
         window.location = '/'
     }
 
@@ -49,10 +55,6 @@ const FacultyLogin = (setSelectedRole) => {
     <Wrapper>
    
 
-
-         
-     
-    
       <section>
       <div className="inner">
       

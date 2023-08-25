@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../../services'
-import { useNavigate } from 'react-router'
+
 
 const AttendanceSheet = () => {
 
     let sectionId = new URLSearchParams(window.location.search).get('sectionId')
    let subjectId = new URLSearchParams(window.location.search).get('subjectId')
-    let date = new Date();
-    let Attendance = {
-      subjectId: '',
-      sectionId: '',
-      attendance:{
-        sectionId:{
-          subjectId:{
-            date: ['true','false']
-          }
-        }
 
-      }
-    }
+   useEffect(() => {
+    if (!localStorage.getItem("USER")) window.location = "/";
+  }, []);
+
+    // let date = new Date();
+    // let Attendance = {
+    //   subjectId: '',
+    //   sectionId: '',
+    //   attendance:{
+    //     sectionId:{
+    //       subjectId:{
+    //         date: ['true','false']
+    //       }
+    //     }
+
+    //   }
+    // }
 
     const [students, setStudents] = useState([])
     const [attendance,setAttendance] = useState([])
-    const navigate = useNavigate()
     
     useEffect(() => {
         services.user.read()
@@ -37,11 +41,7 @@ const AttendanceSheet = () => {
     }, [sectionId])
 
     const MarkAttendance = () => {
-      // const payload = {
-      //   sectionId: sectionId,
-      //   subjectId: subjectId,
-      //   attendance: attendance.map(status => status ? "true" : "false")
-      // };
+    
       
     services.user.markAttendance({sectionId,subjectId,attendance})
     .then((res) =>{

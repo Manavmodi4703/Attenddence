@@ -17,6 +17,8 @@ import FacultyRegistration from "./component/faculty";
 import StudentDashboard from "./component/student-dashboard";
 import { useState } from "react";
 import Header from "./component/header";
+import NotFound from "./component/not-found-page";
+import  ForgotPassword  from "./component/forgotPassword";
 
 
 
@@ -38,8 +40,11 @@ export const App = () => {
        <Route path="studentdashboard" element ={<StudentDashboard/>}></Route>
         <Route path="/view-attendance" element={<ViewAttendance />}></Route>
         <Route path="/attendanceSheet" element = {< AttendanceSheet />}></Route>
+        <Route path="/*" element = {<NotFound />}></Route>
+        <Route path="forgot-password" element = {<ForgotPassword />}></Route>
         {/* <Route path="/section-students/:sectionId" element={<SectionStudents />}></Route> */}
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );
