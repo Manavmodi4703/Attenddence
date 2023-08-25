@@ -80,10 +80,10 @@ const FacultyLogin = (setSelectedRole) => {
     
             <select value={selectedSubject} onChange={e => setSelectedSubject(e.target.value)}>
               <option value="">Select Subject</option>
-              <option value="Dbms">Dbms</option>
-              <option value="OOPS">Oops</option>
-              <option value="DSA">DSA</option>
-              <option value="Software Engineering">Software Engineering</option>
+              <option value="Dccn">Dccn</option>
+              <option value="M&I">M&I</option>
+              <option value="oops">OOPS</option>
+              <option value="java">Java</option>
              
             </select>
             <div className="sections">

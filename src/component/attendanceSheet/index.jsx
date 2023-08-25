@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { services } from '../../services'
+import Wrapper from './style'
 
 
 const AttendanceSheet = () => {
@@ -59,6 +60,7 @@ const AttendanceSheet = () => {
   };
 
   return (
+    <Wrapper>
     <div className="attendance-sheet">
     <h1>Mark Attendance</h1>
     {students.map((student, index) => (
@@ -68,23 +70,24 @@ const AttendanceSheet = () => {
           <p>{student.name}</p>
         </div>
         <div className="attendance-buttons">
-          <button
+          <button id='present'
             className={attendance[index] === true ? "present" : ""}
             onClick={() => toggleAttendance(index, true)}
           >
-            Present
+            <h3>Present</h3>
           </button>
-          <button
+          <button id='absent'
             className={attendance[index] === false ? "absent" : ""}
             onClick={() => toggleAttendance(index, false)}
           >
-               Absent
+               <h3>Absent</h3>
             </button>
           </div>
         </div>
       ))}
       <button className="mark-button" onClick={MarkAttendance}>Submit Attendance </button>
     </div>
+    </Wrapper>
 
 
   )
