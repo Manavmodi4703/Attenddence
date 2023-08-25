@@ -6,24 +6,21 @@ import { services } from '../../services'
 
 const FacultyLogin = () => {
 
-  //  const [loading,setLoading]= useState(false)
-
-  
+   const [loading,setLoading]= useState(false)
 
   const [sections, setSections] = useState([])
+
   const [filteredSections, setFilteredSections] = useState(sections)
 
   const navigate = useNavigate()
 
- 
-
   useEffect(() => {
-  //  setLoading(true)
+    setLoading(true)
     services.getSections()
     .then(res => {
       setSections(res.data)
       setFilteredSections(res.data)
-      
+      setLoading(true)
     })
   },[])
 

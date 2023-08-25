@@ -1,16 +1,16 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Wrapper } from './style';
 // import { Faculty } from '../faculty'
 
-export const Register = ({role,setRole}) => {
+export const Register = ({ role, setRole}) => {
 
 
- 
   const navigate = useNavigate()
 
-  const roleChange = (e) => {
-    const selectedRole = e.target.value;
+  const roleChange = (selectedRole) => {
+    
     setRole(selectedRole)
   if(selectedRole === "Faculty"){
   navigate("/faculty")
@@ -20,11 +20,24 @@ export const Register = ({role,setRole}) => {
  }
 };
   return (
-    <select value={role} onChange={roleChange}>
-      <option disabled selected value="select your role">Select Your Role</option>
-      <option value="Faculty" >Faculty</option>
-      <option value="Student" >Student</option>
-    </select>
+    <Wrapper>
+     <div className="role-buttons">
+        <button
+          className="faculty-button"
+          onClick={() => roleChange('Faculty')}
+        >
+          Register as Faculty
+        </button>
+        <button
+          className="student-button"
+          onClick={() => roleChange('Student')}
+        >
+          Register as Student
+        </button>
+      </div>
+   
+   </Wrapper>
   )
+ 
 };
 export default Register;

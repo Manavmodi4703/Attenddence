@@ -66,7 +66,10 @@ export const StyledFormWrapper = styled.div`
       margin-bottom: 1rem;
 
     }
-  h
+  .forgot{
+    margin-top: 7px;
+    margin-left: 196px;
+  }
 
   }
 `;

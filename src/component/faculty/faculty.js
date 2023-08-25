@@ -38,6 +38,7 @@ export const Wrapper = styled.div`
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-left: 8px;
   }
   
   .registration-form button[type="submit"]:hover {

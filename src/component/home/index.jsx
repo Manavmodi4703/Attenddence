@@ -6,9 +6,17 @@ import { StyledFormWrapper } from "./style";
 
 import { services } from "../../services";
 
-const Home = (role) => {
+const Home = ({role}) => {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
+  const [newPassword,setNewPassword] = useState("")
+
+  const resetPassword=()=>{
+    services.user.read({contact,password})
+    .then((res)=>{
+      
+    })
+  }
 
   const navigate = useNavigate();
 
@@ -29,7 +37,7 @@ const Home = (role) => {
         if (res.data.user.role.toLowerCase() === "student") {
           navigate("/studentdashboard");
         }
-        else if(res.data.user.role.toLowerCase() === "faculty"){
+        else {
           navigate("/faculty-login")
         }
       })
@@ -74,6 +82,7 @@ const Home = (role) => {
           className="input-field"
           
         />
+        <Link className ="forgot" to ="">forgot password</Link>
         <br />
 
         <button type="submit" className="submit-button">
