@@ -46,7 +46,7 @@ const ForgotPassword = () => {
       <div className="input">
         <input
           type="text"
-          placeholder="Enter your contact"
+          placeholder="Contact"
           value={contact}
           required
           onChange={(e) => setContact(e.target.value)}
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
           
           <input
             type="password"
-            placeholder="Enter your new password"
+            placeholder="New password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />

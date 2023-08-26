@@ -76,6 +76,7 @@ const FacultyRegistration = () => {
                 type="text"
                 required
                 id="contact"
+                pattern="[0-9]{10}"
                 onChange={(e) => setContact(e.target.value)}
                 placeholder="Contact"
               />

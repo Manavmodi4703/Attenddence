@@ -18,30 +18,28 @@ import StudentDashboard from "./component/student-dashboard";
 import { useState } from "react";
 import Header from "./component/header";
 import NotFound from "./component/not-found-page";
-import  ForgotPassword  from "./component/forgotPassword";
-
-
+import ForgotPassword from "./component/forgotPassword";
 
 export const App = () => {
-
-  const[role,setRole] = useState("Student")
+  const [role, setRole] = useState("Student");
   return (
-    
     <BrowserRouter>
-    <Header/>
-    
-   
+      <Header />
+
       <Routes>
-        <Route path="/" element={<Home role={role} />}></Route>
-        <Route path="/register" element={<Register role={role} setRole={setRole} />} />
+        <Route path = "/" element={<Home role={role} />}></Route>
+        <Route
+          path="/register"
+          element={<Register role={role} setRole={setRole} />}
+        />
         <Route path="/student" element={<Student />} />
         <Route path="/faculty" element={<FacultyRegistration />} />
         <Route path="/faculty-login" element={<FacultyLogin />} />
-       <Route path="studentdashboard" element ={<StudentDashboard/>}></Route>
+        <Route path="studentdashboard" element={<StudentDashboard />}></Route>
         <Route path="/view-attendance" element={<ViewAttendance />}></Route>
-        <Route path="/attendanceSheet" element = {< AttendanceSheet />}></Route>
-        <Route path="/*" element = {<NotFound />}></Route>
-        <Route path="forgot-password" element = {<ForgotPassword />}></Route>
+        <Route path="/attendanceSheet" element={<AttendanceSheet />}></Route>
+        <Route path="/*" element={<NotFound />}></Route>
+        <Route path="forgot-password" element={<ForgotPassword />}></Route>
         {/* <Route path="/section-students/:sectionId" element={<SectionStudents />}></Route> */}
       </Routes>
 

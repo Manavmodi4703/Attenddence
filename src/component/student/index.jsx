@@ -86,6 +86,7 @@ const Student = () => {
             type="text"
             id="contact" 
             required 
+            pattern = '[0-9]{10}'
             placeholder="Enter Contact"
             onChange={(e)=>setContact(e.target.value)}
              />
