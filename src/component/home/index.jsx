@@ -5,12 +5,12 @@ import { StyledFormWrapper } from "./style";
 // import Faculty from "../faculty";
 
 import { services } from "../../services";
-import ForgotPassword from "../forgotPassword";
+
 
 const Home = ({role}) => {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
-  const [newPassword,setNewPassword] = useState("")
+
 
 
 

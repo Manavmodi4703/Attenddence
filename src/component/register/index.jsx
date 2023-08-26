@@ -1,5 +1,4 @@
 
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Wrapper } from './style';
 // import { Faculty } from '../faculty'

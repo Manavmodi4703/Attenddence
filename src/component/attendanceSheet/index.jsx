@@ -47,13 +47,14 @@ const AttendanceSheet = () => {
     services.user.markAttendance({sectionId,subjectId,attendance})
     .then((res) =>{
       console.log("Attendance successful",res.data);
+      alert("Attendance Marked Successfully")
     }).catch(err =>{
       console.log("error in marking ",err)
     })
   }
 
 
-  const toggleAttendance = (studentIndex, status) => {
+  const fetchAttendance = (studentIndex, status) => {
     const updatedAttendance = [...attendance];
     updatedAttendance[studentIndex] = status;
     setAttendance(updatedAttendance);
@@ -72,13 +73,13 @@ const AttendanceSheet = () => {
         <div className="attendance-buttons">
           <button id='present'
             className={attendance[index] === true ? "present" : ""}
-            onClick={() => toggleAttendance(index, true)}
+            onClick={() => fetchAttendance(index, true)}
           >
             <h3>Present</h3>
           </button>
           <button id='absent'
             className={attendance[index] === false ? "absent" : ""}
-            onClick={() => toggleAttendance(index, false)}
+            onClick={() => fetchAttendance(index, false)}
           >
                <h3>Absent</h3>
             </button>

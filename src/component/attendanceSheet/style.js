@@ -65,6 +65,9 @@ const Wrapper = styled.div`
     font-weight: bold;
     text-transform: uppercase;
   }
+  .mark-button:hover{
+    color:black;
+  }
  
 `;
 

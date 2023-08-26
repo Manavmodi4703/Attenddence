@@ -9,7 +9,7 @@ const FacultyRegistration = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [id, setId] = useState("");
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
@@ -39,11 +39,11 @@ const FacultyRegistration = () => {
       console.log("error in registering", err);
     })
     .finally(() => {
-      e.target.value = "u r registered";
+      e.target.value = "You are registered";
       e.target.succeed = "false";
       setName("");
       setContact("");
-      setId("");
+      
       setPassword("");
       setConfirmPassword("");
       setRole("")

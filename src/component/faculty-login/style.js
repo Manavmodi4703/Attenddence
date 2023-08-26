@@ -13,6 +13,8 @@ input[type="search"] {
   margin-bottom: 20px;
 }
 
+
+
 .sections {
   display: flex;
   flex-wrap: wrap;
@@ -21,10 +23,10 @@ input[type="search"] {
 }
 
 .section {
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 124px;
+  min-height: 130px;
   text-align: center;
-  line-height: 35px;
+  line-height: 30px;
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -40,11 +42,22 @@ input[type="search"] {
 }
 
 .logoutbtn {
-    width: 10%;
+    width: 30%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+.listbtn{
+  padding:10px;
+  width: 40%;
+  font-size:large;
+  height:55px;
+}
+.select{
+  width:140px;
+  height:40px;
+  font-size:15px;
 }
 
 .logoutbtn:hover {

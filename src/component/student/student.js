@@ -57,16 +57,14 @@ export const Wrapper = styled.div`
     background-color: white;
   }
   
-  .registration-form input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
+  .registration-form button[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
   }
   
-  .registration-form input[type="submit"]:hover {
+  .registration-form button[type="submit"]:hover {
     background-color: #0056b3;
   }
   `

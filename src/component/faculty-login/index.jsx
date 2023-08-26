@@ -6,8 +6,8 @@ import { services } from '../../services';
 import {  useNavigate } from 'react-router';
 
 
-const FacultyLogin = (setSelectedRole) => {
-  const [loading, setLoading] = useState(false);
+const FacultyLogin = () => {
+
   const [sections, setSections] = useState([]);
  
   const [selectedSection, setSelectedSection] = useState('');
@@ -22,12 +22,12 @@ const FacultyLogin = (setSelectedRole) => {
   
   
   useEffect(() => {
-    setLoading(true)
+    
     services.getSections()
     .then(res => {
       setSections(res.data)
       setFilteredSections(res.data)
-      setLoading(true)
+     
     })
   },[]);
  
@@ -58,7 +58,7 @@ const FacultyLogin = (setSelectedRole) => {
       <section>
       <div className="inner">
       
-        <a href="#logout" onClick={handleLogout}>
+        <a href="#logout" id='btn' onClick=  {handleLogout}>
           <input className="logoutbtn" type="button" value="Logout" />
         </a>
          
@@ -68,17 +68,10 @@ const FacultyLogin = (setSelectedRole) => {
         onChange={filter}
       /></div>
 
-      {/* <div className="sections">
-      {
-        filteredSections.map(section => <input type="button" key={section.id} className='section' value={section.name} onClick={e => gotoSheet(section)}
-         />)
-        
-      }
-      </div>
-       */}
+    
        
     
-            <select value={selectedSubject} onChange={e => setSelectedSubject(e.target.value)}>
+            <select className='select' value={selectedSubject} onChange={e => setSelectedSubject(e.target.value)}>
               <option value="">Select Subject</option>
               <option value="Dccn">Dccn</option>
               <option value="M&I">M&I</option>
@@ -94,7 +87,8 @@ const FacultyLogin = (setSelectedRole) => {
             ))}
            
           </div>
-          <button onClick={gotoSheet}>Go to Attendance Sheet</button>
+          <input className='listbtn' type="button" value="Student List" onClick={gotoSheet} />
+        
       
       </section>
     

@@ -217,16 +217,23 @@ const StudentDashboard = () => {
      />
  
    <label htmlFor="">Select Section</label>
-    <select className='select' name="" id="">
+    <select className='select' name="" id="" onChange={(e)=>setSection(e.target.value)}>
+    
         <option disabled selected value="">..Select Section...</option>
         <option value="CS-I-A">CS-I-A</option>
         <option value="CS-II-A">CS-II-A</option>
         <option value="CS-III-A">CS-III-A</option>
         <option value="CS-IV-A">CS-IV-A</option>
-        <option value="CS-I-A">CS-I-A</option>
-        <option value="CS-I-A"></option>
-        <option value="CS-I-A"></option>
-        <option value="CS-I-A"></option>
+        <option value="IT-I-A">IT-I-A</option>
+        <option value="ME-I-A">ME-I-A</option>
+        <option value="ME-II-A">ME-II-A</option>
+        <option value="ME-III-A">ME-III-A</option>
+        <option value="ME-IV-A">ME-IV-A</option>
+        <option value="EC-I-A">EC-I-A</option>
+        <option value="EC-II-A">EC-II-A</option>
+        <option value="EC-III-A">EC-III-A</option>
+        <option value="EC-IV-A">EC-IV-A</option>
+        
     </select>
 
     <label htmlFor="branch ">Enter your Branch</label>
