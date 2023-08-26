@@ -53,7 +53,7 @@ const ForgotPassword = () => {
         />
       </div>
 
-      <button  onClick={handleResetPassword}>Reset Password</button>
+      <button onClick={handleResetPassword}>Reset Password</button>
       <p>{message}</p>
       {message && (
         <div className="forgotInput">

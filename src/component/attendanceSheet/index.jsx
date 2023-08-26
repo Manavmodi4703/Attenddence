@@ -12,6 +12,10 @@ const AttendanceSheet = () => {
     if (!localStorage.getItem("USER")) window.location = "/";
   }, []);
 
+  const handleLogout = () =>{
+    localStorage.clear();
+    window.location = "/"
+  }
     // let date = new Date();
     // let Attendance = {
     //   subjectId: '',
@@ -62,8 +66,12 @@ const AttendanceSheet = () => {
 
   return (
     <Wrapper>
+      <a href="#logout" id='btn' onClick=  {handleLogout}>
+          <input className="logoutbtn" type="button" value="Logout" />
+        </a>
     <div className="attendance-sheet">
     <h1>Mark Attendance</h1>
+    
     {students.map((student, index) => (
       <div className="student-row" key={student.id}>
         <div className="student-info">

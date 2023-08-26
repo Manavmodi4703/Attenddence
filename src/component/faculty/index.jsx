@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import { Wrapper } from "./faculty";
+import { Wrapper } from "./style";
 
 const FacultyRegistration = () => {
   const navigate = useNavigate();
