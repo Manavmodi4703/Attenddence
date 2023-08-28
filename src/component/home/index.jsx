@@ -17,9 +17,9 @@ const Home = ({role}) => {
   const navigate = useNavigate();
 
   const addInfo = (e) => {
-    e.preventDefault();
+   e.preventDefault()
     e.target.value = "Wait";
-    e.target.succeed = "true";
+    e.target.succeed = true;
 
   services.user.login({
         contact,
@@ -44,7 +44,7 @@ const Home = ({role}) => {
       })
       .finally(() => {
         e.target.value = "Success";
-        e.target.succeed = "false";
+        e.target.succeed = false;
         setContact("");
         setPassword("");
       });
@@ -54,7 +54,7 @@ const Home = ({role}) => {
   return (
     <StyledFormWrapper>
       <header className="header">AttendApp</header>
-      <form className="login-form" onSubmit={addInfo}>
+      <form className="login-form" >
         <h2>Login</h2>
         <br />
         <input
@@ -78,10 +78,10 @@ const Home = ({role}) => {
           className="input-field"
           
         />
-        <Link to="/forgot-password" className ="forgot" >forgot password</Link>
+        <Link to="/forgot-password" className ="forgot" >Reset password</Link>
         <br />
 
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button" onClick={addInfo}>
           Login
         </button>
         <br />

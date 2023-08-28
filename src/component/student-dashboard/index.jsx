@@ -136,6 +136,7 @@ const StudentDashboard = () => {
   const [section,setSection]=useState([]);
   const[year,setYear] =useState()
   const [contact,setContact] = useState()
+  const [sectionOptions,setSectionOptions] = useState([])
 
   const[branch,setBranch] = useState()
 
@@ -150,7 +151,7 @@ const StudentDashboard = () => {
   };
 
   const fetchAttendance = subject => {
-    // Call API to fetch attendance for the selected subject
+   
     services.user.readAttendance(subject).then(res => {
       setAttendanceData(res.data);
       setSelectedSubject(subject);
@@ -159,7 +160,7 @@ const StudentDashboard = () => {
 
   const handleSubmit = (e) =>{
     e.target.value = "loading"
-    e.target.succeed = "true"
+    e.target.succeed = true
     services.user.update({
         contact,
         year,
@@ -171,18 +172,34 @@ const StudentDashboard = () => {
         alert("Update successfully");
       }).catch((err )=>{
         console.log(err)
-        alert("Error in updating")
+        alert("Error in updating! Select all fields ",err)
       }).finally(()=>{
         e.target.value = "Success";
-        e.target.succeed = "false";
+        e.target.succeed = false;
         setContact("");
-        setBranch(" ");
-        setYear(" ");
-        setSection(" ");
+        setBranch("");
+        setYear("");
+        setSection("");
 
       });
 
   }
+  const handleYearChange = (selectedYear) => {
+    setYear(selectedYear);
+
+    // Update section options based on selected year
+    if (selectedYear === 'I') {
+      setSectionOptions(['CS-I-A', 'IT-I-A', 'ME-I-A', 'EC-I-A']);
+    } else if (selectedYear === 'II') {
+      setSectionOptions(['CS-II-A', 'ME-II-A', 'EC-II-A']);
+    } else if (selectedYear === 'III') {
+      setSectionOptions(['CS-III-A', 'ME-III-A', 'EE-III-A']);
+    } else if (selectedYear === 'IV') {
+      setSectionOptions(['CS-IV-A', 'ME-IV-A', 'EE-IV-A']);
+    } else {
+      setSectionOptions([]);
+    }
+  };
 
   return (
     <Wrapper>
@@ -205,36 +222,27 @@ const StudentDashboard = () => {
      />
 
 
-    <label htmlFor="year">Enter your Year </label>
-     <input
-     type="text"
-     value={year}
-     required
-     placeholder='1st/2nd/3rd/4th' 
-     onChange={(e)=>setYear(e.target.value)}
-     pattern='[1-4]{1}[a-z]{2}'
-     
-     />
- 
-   <label htmlFor="">Select Section</label>
-    <select className='select' name="" id="" onChange={(e)=>setSection(e.target.value)}>
+    <label htmlFor="year">Select Year </label>
+  <select className='select' name="" id="" onChange={(e)=>handleYearChange(e.target.value)}>
     
-        <option disabled selected value="">..Select Section...</option>
-        <option value="CS-I-A">CS-I-A</option>
-        <option value="CS-II-A">CS-II-A</option>
-        <option value="CS-III-A">CS-III-A</option>
-        <option value="CS-IV-A">CS-IV-A</option>
-        <option value="IT-I-A">IT-I-A</option>
-        <option value="ME-I-A">ME-I-A</option>
-        <option value="ME-II-A">ME-II-A</option>
-        <option value="ME-III-A">ME-III-A</option>
-        <option value="ME-IV-A">ME-IV-A</option>
-        <option value="EC-I-A">EC-I-A</option>
-        <option value="EC-II-A">EC-II-A</option>
-        <option value="EC-III-A">EC-III-A</option>
-        <option value="EC-IV-A">EC-IV-A</option>
-        
-    </select>
+  <option value="" disabled selected required>Year...</option>
+  <option value="I">I</option>
+  <option value="II">II</option>
+  <option value="III">III</option>
+  <option value="IV">IV</option>
+
+  </select>
+
+ 
+  <label htmlFor="">Select Section</label>
+<select  className='select' name="" id="" onChange={(e) => setSection(e.target.value)}>
+  <option disabled selected required value="">..Select Section...</option>
+  {sectionOptions.map((sectionOption, index) => (
+    <option key={index} value={sectionOption}>
+      {sectionOption}
+    </option>
+  ))}
+</select>
 
     <label htmlFor="branch ">Enter your Branch</label>
       <input type="text"

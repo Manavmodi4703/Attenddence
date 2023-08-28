@@ -9,7 +9,7 @@ const Header = () => {
     <Wrapper>
     <header>
         
-      <h3>Attendance Management App</h3>
+      <h3 title = "Some Description">Attendance Management App</h3>
     </header>
     </Wrapper>
    

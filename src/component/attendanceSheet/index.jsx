@@ -4,6 +4,8 @@ import Wrapper from './style'
 
 
 const AttendanceSheet = () => {
+  
+  const [markedPresentCount, setMarkedPresentCount] = useState(0);
 
     let sectionId = new URLSearchParams(window.location.search).get('sectionId')
    let subjectId = new URLSearchParams(window.location.search).get('subjectId')
@@ -51,10 +53,13 @@ const AttendanceSheet = () => {
     services.user.markAttendance({sectionId,subjectId,attendance})
     .then((res) =>{
       console.log("Attendance successful",res.data);
-      alert("Attendance Marked Successfully")
+  
+      const presentCount = attendance.filter(status => status).length;
+      setMarkedPresentCount(presentCount);
+      alert(`Attendance Marked Successfully. ${presentCount} students marked present out of ${students.length}`);
     }).catch(err =>{
       console.log("error in marking ",err)
-    })
+    })  
   }
 
 
